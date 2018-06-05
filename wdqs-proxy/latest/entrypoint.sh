@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # This file is provided by the wikibase/wdqs-proxy docker image.
 
 # Test if required environment variables have been set

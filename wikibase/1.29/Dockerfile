@@ -40,5 +40,5 @@ ENV MW_SITE_NAME=wikibase-docker\
     MW_SITE_LANG=en
 
 
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/bash"]
 CMD ["/entrypoint.sh"]
