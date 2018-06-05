@@ -5,7 +5,7 @@ set -e
 docker build --pull "$DIR/../base" -t wikibase/wikibase:1.30 -t wikibase/wikibase:1.30-base -t wikibase/wikibase:latest -t wikibase/wikibase:latest-base
 docker build --pull "$DIR/../bundle" -t wikibase/wikibase:1.30-bundle -t wikibase/wikibase:latest-bundle
 
-if [ "$SHOULD_DOCKER_PUSH" = true ]; then
+if [[ $SHOULD_DOCKER_PUSH ]]; then
     docker push wikibase/wikibase:1.30
     docker push wikibase/wikibase:latest
     docker push wikibase/wikibase:1.30-base

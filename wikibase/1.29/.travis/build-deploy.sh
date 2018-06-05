@@ -4,7 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 set -e
 docker build --pull "$DIR/../" -t wikibase/wikibase:1.29 -t wikibase/wikibase:legacy
 
-if [ "$SHOULD_DOCKER_PUSH" = true ]; then
+if [[ $SHOULD_DOCKER_PUSH ]]; then
     docker push wikibase/wikibase:1.29
     docker push wikibase/wikibase:legacy
 fi
