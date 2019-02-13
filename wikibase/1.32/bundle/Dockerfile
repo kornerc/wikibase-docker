@@ -11,11 +11,13 @@ bash download-extension.sh Elastica;\
 bash download-extension.sh CirrusSearch;\
 bash download-extension.sh UniversalLanguageSelector;\
 bash download-extension.sh cldr;\
+bash download-extension.sh Scribunto;\
 tar xzf OAuth.tar.gz;\
 tar xzf Elastica.tar.gz;\
 tar xzf CirrusSearch.tar.gz;\
 tar xzf UniversalLanguageSelector.tar.gz;\
 tar xzf cldr.tar.gz;\
+tar xzf Scribunto.tar.gz;\
 tar xzf WikibaseImport.tar.gz
 
 FROM composer as composer
@@ -32,6 +34,8 @@ COPY --from=composer /Elastica /var/www/html/extensions/Elastica
 COPY --from=fetcher /CirrusSearch /var/www/html/extensions/CirrusSearch
 COPY --from=fetcher /UniversalLanguageSelector /var/www/html/extensions/UniversalLanguageSelector
 COPY --from=fetcher /cldr /var/www/html/extensions/cldr
+COPY --from=fetcher /Scribunto /var/www/html/extensions/Scribunto
+RUN chmod a+x /var/www/html/extensions/Scribunto/includes/engines/LuaStandalone/binaries/lua5_1_5_linux_64_generic/lua
 COPY --from=composer /WikibaseImport /var/www/html/extensions/WikibaseImport
 COPY LocalSettings.php.wikibase-bundle.template /LocalSettings.php.wikibase-bundle.template
 COPY extra-install.sh /
